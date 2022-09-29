@@ -92,7 +92,7 @@ export const Management = (props) => {
               <th>
                 <input
                   type="checkbox"
-                  defaultChecked={true}
+                  defaultChecked={false}
                   onChange={(event) => {
                     if (event.target.checked) {
                       setCheckedUsers((checkedUsers) => [
