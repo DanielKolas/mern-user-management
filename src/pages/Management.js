@@ -31,7 +31,7 @@ export const Management = (props) => {
       if (checkedUsers.includes(loggedUserSession)) {
         navigate("/", { replace: true });
       } else {
-        window.location.reload(false);
+        navigate("/management", { replace: true });
       }
     });
   };
@@ -44,7 +44,7 @@ export const Management = (props) => {
       if (checkedUsers.includes(loggedUserSession)) {
         navigate("/", { replace: true });
       } else{
-        window.location.reload(false);
+        navigate("/management", { replace: true });
       }
     });
 
@@ -54,7 +54,7 @@ export const Management = (props) => {
     Axios.post("https://mern-management-users.herokuapp.com/unblockUser", {
       checkedUsers: checkedUsers,
     }).then((response) => {});
-    window.location.reload(false);
+    navigate("/management", { replace: true });
   };
 
   return (
