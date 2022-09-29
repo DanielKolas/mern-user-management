@@ -1,0 +1,51 @@
+.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.title {
+  margin: 50px 0 20px;
+}
+.button {
+  cursor: pointer;
+  margin: 10px;
+  width: 200px;
+}
+.button:hover {
+  animation: 0.5s enlarge ease-in-out forwards;
+}
+.input {
+  margin: 10px 0 0;
+  width: 300px;
+}
+.buttonManagement {
+  cursor: pointer;
+  margin: 10px;
+  width: 150px;
+}
+.icon {
+  width: 100px;
+}
+.icon:hover {
+  cursor: pointer;
+  animation: 0.5s enlarge ease-in-out forwards;
+  color: rgb(97, 186, 253);
+}
+.table {
+  width: 90%;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+@keyframes enlarge {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
