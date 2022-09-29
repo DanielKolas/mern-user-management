@@ -20,7 +20,7 @@ export const Register = () => {
   const createUser = () => {
     if (password === password2) {
       let today = new Date().toLocaleString();
-      Axios.post("http://localhost:3001/createUser", {
+      Axios.post("https://mern-management-users.herokuapp.com/createUser", {
         name: name,
         email: email,
         password: password,

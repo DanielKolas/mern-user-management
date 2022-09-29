@@ -18,13 +18,13 @@ export const Management = (props) => {
 
   useEffect(() => {
     setUserLogged(props.userLogge);
-    Axios.get("http://localhost:3001/getUsers").then((response) => {
+    Axios.get("https://mern-management-users.herokuapp.com/getUsers").then((response) => {
       setListOfUsers(response.data);
     });
   }, []);
 
   const deleteUser = () => {
-    Axios.post("http://localhost:3001/deleteUser", {
+    Axios.post("https://mern-management-users.herokuapp.com/deleteUser", {
       checkedUsers: checkedUsers,
     }).then((response) => {
       const loggedUserSession = sessionStorage.getItem("userLoggedIn");
@@ -37,7 +37,7 @@ export const Management = (props) => {
   };
 
   const blockUser = () => {
-    Axios.post("http://localhost:3001/blockUser", {
+    Axios.post("https://mern-management-users.herokuapp.com/blockUser", {
       checkedUsers: checkedUsers,
     }).then((response) => {
       const loggedUserSession = sessionStorage.getItem("userLoggedIn");
@@ -51,7 +51,7 @@ export const Management = (props) => {
   };
   
   const unblockUser = () => {
-    Axios.post("http://localhost:3001/unblockUser", {
+    Axios.post("https://mern-management-users.herokuapp.com/unblockUser", {
       checkedUsers: checkedUsers,
     }).then((response) => {});
     window.location.reload(false);

@@ -19,7 +19,7 @@ const LogIn = (props) => {
   }
 
   const checkCredentials = () => {
-    Axios.post("http://localhost:3001/checkCredentials", { email }).then(
+    Axios.post("https://mern-management-users.herokuapp.com/checkCredentials", { email }).then(
       (response) => {
         if (response.data[0].status === "blocked") {
           alert("User blocked");
@@ -30,7 +30,7 @@ const LogIn = (props) => {
           let today = new Date().toLocaleString();
           props.setUserLoggedTrueHandler(response.data[0]._id);
           sessionStorage.setItem('userLoggedIn', response.data[0]._id);
-          Axios.post("http://localhost:3001/changeLoginTime", {
+          Axios.post("https://mern-management-users.herokuapp.com/changeLoginTime", {
             email: email,
             newLogTime: today,
           }).then((response) => {
