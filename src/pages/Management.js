@@ -9,6 +9,7 @@ import Table from "react-bootstrap/Table";
 
 
 export const Management = (props) => {
+  const [reload,setReload]=useState(false);
   const navigate = useNavigate();
   const [userLogged, setUserLogged] = useState(props.userLogged);
   const [checkedUsers, setCheckedUsers] = useState(
@@ -21,7 +22,7 @@ export const Management = (props) => {
     Axios.get("https://mern-management-users.herokuapp.com/getUsers").then((response) => {
       setListOfUsers(response.data);
     });
-  }, []);
+  }, [reload,setReload]);
 
   const deleteUser = () => {
     Axios.post("https://mern-management-users.herokuapp.com/deleteUser", {
@@ -31,7 +32,7 @@ export const Management = (props) => {
       if (checkedUsers.includes(loggedUserSession)) {
         navigate("/", { replace: true });
       } else {
-        navigate("/management", { replace: true });
+        setReload(!reload);
       }
     });
   };
@@ -44,7 +45,7 @@ export const Management = (props) => {
       if (checkedUsers.includes(loggedUserSession)) {
         navigate("/", { replace: true });
       } else{
-        navigate("/management", { replace: true });
+        setReload(!reload);
       }
     });
 
@@ -54,7 +55,7 @@ export const Management = (props) => {
     Axios.post("https://mern-management-users.herokuapp.com/unblockUser", {
       checkedUsers: checkedUsers,
     }).then((response) => {});
-    navigate("/management", { replace: true });
+    setReload(!reload);
   };
 
   return (
